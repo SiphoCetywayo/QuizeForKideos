@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizing">20sp</dimen>
+    <dimen name="imageVeiwTopmargin">50dp</dimen>
+    <dimen name="playButtonTopmargin">50dp</dimen>
+    <dimen name="playButtonRightmargin">60dp</dimen>
+    <dimen name="playButtonLeftmargin">60dp</dimen>
+    <dimen name="imageViewBottom">20dp</dimen>
+    <dimen name="imageShareMarginTop">40dp</dimen>
+    <dimen name="LargeScreenButtonPadding">30dp</dimen>
+    <dimen name="ResultsMarginTop">30dp</dimen>
+</resources>

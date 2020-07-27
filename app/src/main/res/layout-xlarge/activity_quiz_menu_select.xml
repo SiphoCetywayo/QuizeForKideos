@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizMenuSelect"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnAnimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/animal_quize"
+        android:background="@drawable/shapes2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:padding="50dp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textColor="@color/whiteTextcolor"
+        android:drawableRight="@drawable/ic_play_arrow_black_24dp"
+        android:onClick="btnAnimal"
+        android:textSize="25sp"/>
+
+</LinearLayout>

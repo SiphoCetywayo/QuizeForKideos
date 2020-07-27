@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AnimalQuestionOne"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#1f4068"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="1dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/QuestionOne"
+                android:textColor="#0f0f0f"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/cheetah"
+                android:layout_width="wrap_content"
+                android:layout_height="266dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/cheetahtwoo"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/Opt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Lion"
+            android:textAllCaps="false"
+            android:onClick="OptionOne"
+            android:background="@drawable/btnanswer"/>
+        <Button
+            android:id="@+id/Opt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Tiger"
+            android:textAllCaps="false"
+            android:onClick="OptionTwo"
+            android:background="@drawable/btnanswer"/>
+
+        <Button
+            android:id="@+id/Opt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Cheeta"
+            android:textAllCaps="false"
+            android:onClick="OptionThree"
+            android:background="@drawable/btnanswer"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/imageShareMarginTop"
+            android:layout_gravity="center"
+            android:text="@string/next"
+            android:onClick="nextQuestion"
+            android:textColor="@color/whiteTextcolor"
+            android:background="@drawable/shapes"/>
+
+    </LinearLayout>
+</ScrollView>

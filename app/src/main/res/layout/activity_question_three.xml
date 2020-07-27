@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".QuestionThree"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#1f4068"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="1dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/Question3"
+                android:textColor="#0f0f0f"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/Tiger"
+                android:layout_width="wrap_content"
+                android:layout_height="266dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/tigerimg_400x250"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/BtnOne_Section3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Tiger"
+            android:textAllCaps="false"
+            android:background="@drawable/btnanswer"/>
+        <Button
+            android:id="@+id/BtnTwo_Section3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Dog"
+            android:textAllCaps="false"
+            android:background="@drawable/btnanswer"/>
+
+        <Button
+            android:id="@+id/BtnThree_Section3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Cat"
+            android:textAllCaps="false"
+            android:background="@drawable/btnanswer"/>
+
+        <Button
+            android:id="@+id/btn_nextSection3"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/imageShareMarginTop"
+            android:background="@drawable/shapes"
+            android:onClick="nextQuestion"
+            android:text="@string/next"
+            android:textColor="@color/whiteTextcolor" />
+
+    </LinearLayout>
+</ScrollView>
