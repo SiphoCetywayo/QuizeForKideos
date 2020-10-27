@@ -17,6 +17,7 @@ public class QuizMenuSelect extends AppCompatActivity {
 
     }
 
+    /*The btnAnimal() method calls the Animal quize questions for the user to begin with their quize*/
     public void btnAnimal(View view) {
         Intent intent = new Intent(QuizMenuSelect.this, QuestionOne.class);
         startActivity(intent);

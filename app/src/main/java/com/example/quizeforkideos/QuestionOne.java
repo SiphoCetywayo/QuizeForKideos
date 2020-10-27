@@ -23,10 +23,13 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_question_one);
 
+        /*Applications button widget initialization*/
         btn1 = findViewById(R.id.Opt1);
         btn2 = findViewById(R.id.Opt2);
         btn3 = findViewById(R.id.Opt3);
         btn4 = findViewById(R.id.btn_next);
+
+        /*setBtnInvinsible() calling statement*/
         setBtnInvinsible();
 
 
@@ -37,12 +40,12 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
 
     }
 
-
     @SuppressLint("ResourceType")
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
 
+        /*Switch statement to control user option selection during quiz*/
         switch (v.getId()) {
             case R.id.Opt1:
                 incorrectAnswer();
@@ -73,27 +76,35 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
                 }
                 questionOneAnswer = quizeAppUtils.scoreCount();
                 TotalScore = QuizFinalScore(questionOneAnswer);
+
+                /*btnDisable() calling statement*/
                 btnDisable();
+
+                /*makeBtnVissible() calling statement*/
                 makeBtnVissible();
                 break;
 
+            /*nextQuestion() calling statement*/
             case R.id.btn_next:
                 nextQuestion();
                 break;
         }
     }
 
+    /*btnDisable method controls button disablement */
     public void btnDisable() {
         btn1.setEnabled(false);
         btn2.setEnabled(false);
         btn3.setEnabled(false);
     }
 
+    /*setBtnInvinsible() to button invisible*/
     public void setBtnInvinsible() {
         btn4.setVisibility(View.INVISIBLE);
 
     }
 
+    /*makeBtnVissible() changes button invisibility to visible*/
     public void makeBtnVissible() {
         btn4.setVisibility(View.VISIBLE);
     }
