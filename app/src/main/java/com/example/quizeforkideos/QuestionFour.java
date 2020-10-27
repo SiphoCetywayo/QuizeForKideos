@@ -23,11 +23,12 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_four);
 
+        /*Applications button widget initialization*/
         btn1 = findViewById(R.id.BtnOne_Section4);
         btn2 = findViewById(R.id.BtnTwo_Section4);
         btn3 = findViewById(R.id.BtnThree_Section4);
         btn4 = findViewById(R.id.btn_next);
-        setBtnInvinsible();
+        setBtnInvinsible();/*setBtnInvisible() calling statement*/
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -38,70 +39,75 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
+    /*Switch statement to control user option selection during quiz*/
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.BtnOne_Section4:
-                correctAnswer();
+                correctAnswer();/*correctAnswer() calling statement*/
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn1.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     question4Answer = qz4.scoreCount();
                     totalScore = QuizFinalScore(question4Answer);
-                    btnDisable();
-                    makeBtnVissible();
+                    btnDisable();/*btnDisable() calling statement*/
+                    makeBtnVisible();/*makeBtnVisible calling statement*/
                     break;
                 }
 
             case R.id.BtnTwo_Section4:
-                incorrectAnswer();
+                incorrectAnswer();/*incorrectAnswer calling statement*/
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     question4Answer = qz4.zeroCount();
                     totalScore = QuizFinalScore(question4Answer);
-                    btnDisable();
-                    makeBtnVissible();
+                    btnDisable();/*btnDisable() calling statement*/
+                    makeBtnVisible();/*makeBtnVisible calling statement*/
                     break;
                 }
 
             case R.id.BtnThree_Section4:
-                incorrectAnswer();
+                incorrectAnswer();/*incorrectAnswer calling statement*/
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     question4Answer = qz4.zeroCount();
                     totalScore = QuizFinalScore(question4Answer);
-                    btnDisable();
-                    makeBtnVissible();
+                    btnDisable();/*btnDisable() calling statement*/
+                    makeBtnVisible();/*makeBtnVisible calling statement*/
                     break;
                 }
 
+                /*nextQuestion() calling statement*/
             case R.id.btn_next:
                 submit();
         }
     }
 
-
+    /*setBtnInvinsible() set btn4 invisible*/
     public void setBtnInvinsible() {
         btn4.setVisibility(View.INVISIBLE);
-
     }
-
-    public void makeBtnVissible() {
+    /*makeBtnVisible() changes btn4 invisibility to visible*/
+    public void makeBtnVisible() {
         btn4.setVisibility(View.VISIBLE);
     }
 
+    /*incorrectAnswer() method called when an incorrect option is selected*/
     public void incorrectAnswer() {
         Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
     }
 
+    /*correctAnswer() called when a correct answer is selected*/
     public void correctAnswer() {
         Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
     }
 
+    /*btnDisable method controls button disablement */
     public void btnDisable() {
         btn1.setEnabled(false);
         btn2.setEnabled(false);
         btn3.setEnabled(false);
     }
 
+    /*QuizFinalScore() returns question 4 scoring*/
     public int QuizFinalScore(int Question4Answer) {
         Intent mInntent = getIntent();
         Integer Question3Answer = mInntent.getIntExtra("Question3Answer", 0);
@@ -109,6 +115,7 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
         return totalScore;
     }
 
+    /*submit() method submits and navigates users to the next question(Activity)*/
     public void submit() {
         Intent intent = new Intent(QuestionFour.this, QuestionFive.class);
         intent.putExtra("FinalSubmit", totalScore);

@@ -19,6 +19,8 @@ public class FinalScore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_score);
+
+        /*Application TextViews initialization.*/
         TextView txtScore = findViewById(R.id.txt_score);
         TextView q1Opt = findViewById(R.id.q1Answer);
         TextView q2Opt = findViewById(R.id.q2Answer);
@@ -31,6 +33,7 @@ public class FinalScore extends AppCompatActivity {
         txtScore.setText((QuizTotal + " / 5"));
 
 
+        /*Decision statement to determine correct and incorrect User selection*/
         if (QuestionOne.questionOneAnswer == 1) {
             Drawable drawable = VectorDrawableCompat.create(getResources(), R.drawable.ic_check_black_24dp, getTheme());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {

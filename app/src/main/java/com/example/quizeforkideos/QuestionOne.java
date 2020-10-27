@@ -55,7 +55,7 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
                 questionOneAnswer = quizeAppUtils.zeroCount();
                 TotalScore = QuizFinalScore(questionOneAnswer);
                 btnDisable();
-                makeBtnVissible();
+                makeBtnVisible();
                 break;
 
             case R.id.Opt2:
@@ -66,7 +66,7 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
                 questionOneAnswer = quizeAppUtils.zeroCount();
                 TotalScore = QuizFinalScore(questionOneAnswer);
                 btnDisable();
-                makeBtnVissible();
+                makeBtnVisible();
                 break;
 
             case R.id.Opt3:
@@ -76,12 +76,8 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
                 }
                 questionOneAnswer = quizeAppUtils.scoreCount();
                 TotalScore = QuizFinalScore(questionOneAnswer);
-
-                /*btnDisable() calling statement*/
-                btnDisable();
-
-                /*makeBtnVissible() calling statement*/
-                makeBtnVissible();
+                btnDisable();/*btnDisable() calling statement*/
+                makeBtnVisible(); /*makeBtnVisible() calling statement*/
                 break;
 
             /*nextQuestion() calling statement*/
@@ -98,31 +94,34 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         btn3.setEnabled(false);
     }
 
-    /*setBtnInvinsible() to button invisible*/
+    /*setBtnInvinsible() set button invisible*/
     public void setBtnInvinsible() {
         btn4.setVisibility(View.INVISIBLE);
 
     }
 
     /*makeBtnVissible() changes button invisibility to visible*/
-    public void makeBtnVissible() {
+    public void makeBtnVisible() {
         btn4.setVisibility(View.VISIBLE);
     }
 
-
+    /*incorrectAnswer() method called when an incorrect option is selected*/
     public void incorrectAnswer() {
         Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
     }
 
+    /*correctAnswer() called when a correct answer is selected*/
     public void correctAnswer() {
         Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
     }
 
+    /*QuizFinalScore() returns question 1 scoring*/
     public int QuizFinalScore(int QuestionOne) {
         TotalScore = QuestionOne;
         return TotalScore;
     }
 
+    /*nextQuestion() method navigates users to the next question(Activity)*/
     public void nextQuestion() {
         Intent intent = new Intent(QuestionOne.this, QuestionTwo.class);
         intent.putExtra("questionOneAnswer", TotalScore);
