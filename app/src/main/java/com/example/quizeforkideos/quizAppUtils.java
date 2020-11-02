@@ -1,6 +1,6 @@
 package com.example.quizeforkideos;
 
-public final class quizeAppUtils {
+public final class quizAppUtils {
 
 
     static int scoreCount() {

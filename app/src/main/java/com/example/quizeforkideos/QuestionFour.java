@@ -14,7 +14,7 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
 
     Button btn1, btn2, btn3, btn4;
     public static int question4Answer;
-    quizeAppUtils qz4 = new quizeAppUtils();
+    quizAppUtils qz4 = new quizAppUtils();
     int totalScore;
 
 

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -13,8 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class QuestionOne extends AppCompatActivity implements View.OnClickListener {
 
-    quizeAppUtils quizeAppUtils = new quizeAppUtils();
-    Button btn1, btn2, btn3, btn4;
+    quizAppUtils quizeAppUtils = new quizAppUtils();
+    RadioButton btn1, btn2, btn3;
+    Button btn4;
     public static int questionOneAnswer;
     int TotalScore;
 
@@ -44,45 +46,43 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
-
         /*Switch statement to control user option selection during quiz*/
         switch (v.getId()) {
             case R.id.Opt1:
-                incorrectAnswer();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    btn1.setBackground(getDrawable(R.drawable.btnincorrectanswer));
-                }
-                questionOneAnswer = quizeAppUtils.zeroCount();
-                TotalScore = QuizFinalScore(questionOneAnswer);
-                btnDisable();
-                makeBtnVisible();
-                break;
 
             case R.id.Opt2:
-                incorrectAnswer();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
-                }
-                questionOneAnswer = quizeAppUtils.zeroCount();
-                TotalScore = QuizFinalScore(questionOneAnswer);
-                btnDisable();
+
+            case R.id.Opt3:
+
+                /*makeBtnVisible() calling statement*/
                 makeBtnVisible();
                 break;
 
-            case R.id.Opt3:
-                correctAnswer();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    btn3.setBackground(getDrawable(R.drawable.btncorrectanswer));
-                }
-                questionOneAnswer = quizeAppUtils.scoreCount();
-                TotalScore = QuizFinalScore(questionOneAnswer);
-                btnDisable();/*btnDisable() calling statement*/
-                makeBtnVisible(); /*makeBtnVisible() calling statement*/
-                break;
-
-            /*nextQuestion() calling statement*/
             case R.id.btn_next:
+                /*nextQuestion() calling statement*/
                 nextQuestion();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && btn1.isChecked()) {
+                    btn1.setBackground(getDrawable(R.drawable.btnincorrectanswer));
+                    questionOneAnswer = quizeAppUtils.zeroCount();
+                    TotalScore = QuizFinalScore(questionOneAnswer);
+                    incorrectAnswer();
+                    btnDisable();/*btnDisable() calling statement*/
+
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && btn2.isChecked()) {
+                    btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
+                    questionOneAnswer = quizeAppUtils.zeroCount();
+                    TotalScore = QuizFinalScore(questionOneAnswer);
+                    incorrectAnswer();
+                    btnDisable();/*btnDisable() calling statement*/
+
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    btn3.setBackground(getDrawable(R.drawable.btncorrectanswer));
+                    questionOneAnswer = quizeAppUtils.scoreCount();
+                    TotalScore = QuizFinalScore(questionOneAnswer);
+                    correctAnswer();
+                    btnDisable();/*btnDisable() calling statement*/
+
+                }
                 break;
         }
     }
@@ -99,7 +99,6 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         btn4.setVisibility(View.INVISIBLE);
 
     }
-
     /*makeBtnVissible() changes button invisibility to visible*/
     public void makeBtnVisible() {
         btn4.setVisibility(View.VISIBLE);
@@ -127,5 +126,4 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         intent.putExtra("questionOneAnswer", TotalScore);
         startActivity(intent);
     }
-
 }

@@ -15,7 +15,7 @@ public class QuestionFive extends AppCompatActivity implements View.OnClickListe
     Button btn1, btn2, btn3, btn4;
     public static int Question5Answer;
     int totalScore;
-    quizeAppUtils qz5 = new quizeAppUtils();
+    quizAppUtils qz5 = new quizAppUtils();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

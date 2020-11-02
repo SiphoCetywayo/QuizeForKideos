@@ -49,40 +49,44 @@
                 android:src="@drawable/cheetahtwoo"/>
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/Opt1"
+
+        <RadioGroup
+            android:id="@+id/radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Lion"
-            android:textAllCaps="false"
-            android:onClick="OptionOne"
-            android:background="@drawable/btnanswer"/>
-        <Button
-            android:id="@+id/Opt2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Tiger"
-            android:textAllCaps="false"
-            android:onClick="OptionTwo"
-            android:background="@drawable/btnanswer"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-        <Button
-            android:id="@+id/Opt3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Cheeta"
-            android:textAllCaps="false"
-            android:onClick="OptionThree"
-            android:background="@drawable/btnanswer"/>
+            <RadioButton
+                android:id="@+id/Opt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+                android:text="Lion"
+                android:textAllCaps="false"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/btnanswer"/>
+
+            <RadioButton
+                android:id="@+id/Opt2"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Cat"
+                android:background="@drawable/btnanswer"/>
+
+            <RadioButton
+                android:id="@+id/Opt3"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Tiger"
+                android:background="@drawable/btnanswer"/>
+        </RadioGroup>
 
         <Button
             android:id="@+id/btn_next"

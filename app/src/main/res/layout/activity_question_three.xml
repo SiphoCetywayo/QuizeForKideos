@@ -50,7 +50,7 @@
 
         </RelativeLayout>
 
-        <Button
+        <!--<Button
             android:id="@+id/BtnOne_Section3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +80,16 @@
             android:layout_marginRight="10dp"
             android:text="Cat"
             android:textAllCaps="false"
-            android:background="@drawable/btnanswer"/>
+            android:background="@drawable/btnanswer"/>-->
+        <EditText
+            android:id="@+id/freeTextfield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextstyle"/>
 
         <Button
             android:id="@+id/btn_nextSection3"

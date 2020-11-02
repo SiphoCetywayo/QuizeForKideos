@@ -50,37 +50,53 @@
 
         </RelativeLayout>
 
-        <Button
+        <CheckBox
             android:id="@+id/BtnOne_Section2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Giraffe"
+            android:text="PLAINS ZEBRAS ARE SMALL AND NUMEROUS"
             android:textAllCaps="false"
+            android:padding="15dp"
             android:background="@drawable/btnanswer"/>
-        <Button
+        <CheckBox
             android:id="@+id/BtnTwo_Section2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Zebra"
+            android:text="ZEBRAS ARE FRIENDLIER THAN HOURS"
             android:textAllCaps="false"
+            android:padding="15dp"
             android:onClick="OptionTwo_Section2"
             android:background="@drawable/btnanswer"/>
 
-        <Button
+        <CheckBox
             android:id="@+id/BtnThree_Section2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Cow"
+            android:text=" GREVY’S ZEBRAS ARE LARGE AND PRESIDENTIAL."
             android:textAllCaps="false"
+            android:onClick="OptionThree_Section3"
+            android:padding="15dp"
+            android:background="@drawable/btnanswer"/>
+
+        <CheckBox
+            android:id="@+id/BtnFour_Section2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Zebras are friendly to human and can domesticated"
+            android:textAllCaps="false"
+            android:padding="15dp"
             android:onClick="OptionThree_Section3"
             android:background="@drawable/btnanswer"/>
 
@@ -92,6 +108,7 @@
             android:layout_gravity="center"
             android:text="@string/next"
             android:onClick="nextQuestion"
+            android:padding="15dp"
             android:textColor="@color/whiteTextcolor"
             android:background="@drawable/shapes"/>
 
