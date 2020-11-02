@@ -14,4 +14,12 @@ public final class quizeAppUtils {
         return score;
     }
 
+    public void delay(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
