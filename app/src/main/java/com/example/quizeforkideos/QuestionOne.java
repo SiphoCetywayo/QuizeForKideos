@@ -31,15 +31,11 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         btn3 = findViewById(R.id.Opt3);
         btn4 = findViewById(R.id.btn_next);
 
-        /*setBtnInvinsible() calling statement*/
+        /*setBtnInvinsible() calling statement to set btn_next invinsible until a radio selection is made*/
         setBtnInvinsible();
 
-
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-
+        /*setBtnOnclickLisnter *calling statement sets OnclickLister event for radioButton1,2,3 and button 4*/
+        setBtnOnclickLisnter();
     }
 
     @SuppressLint("ResourceType")
@@ -59,32 +55,45 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.btn_next:
-                /*nextQuestion() calling statement*/
-                nextQuestion();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && btn1.isChecked()) {
                     btn1.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     questionOneAnswer = quizeAppUtils.zeroCount();
-                    TotalScore = QuizFinalScore(questionOneAnswer);
                     incorrectAnswer();
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && btn2.isChecked()) {
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     questionOneAnswer = quizeAppUtils.zeroCount();
-                    TotalScore = QuizFinalScore(questionOneAnswer);
                     incorrectAnswer();
                     btnDisable();/*btnDisable() calling statement*/
 
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && btn3.isChecked()) {
                     btn3.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     questionOneAnswer = quizeAppUtils.scoreCount();
-                    TotalScore = QuizFinalScore(questionOneAnswer);
                     correctAnswer();
                     btnDisable();/*btnDisable() calling statement*/
 
                 }
+                /*nextQuestion() calling statement */
+                nextQuestion(questionOneAnswer);
                 break;
         }
+    }
+
+    /*This method sets OnclickLisnter for the widgets lister bellow*/
+    public void setBtnOnclickLisnter(){
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+    }
+
+    /*nextQuestion() method navigates users to the next question(Activity)*/
+    public void nextQuestion(int QuestionOne) {
+        Intent intent = new Intent(QuestionOne.this, QuestionTwo.class);
+        TotalScore = QuestionOne;
+        intent.putExtra("questionOneAnswer", TotalScore);
+        startActivity(intent);
     }
 
     /*btnDisable method controls button disablement */
@@ -114,16 +123,4 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
         Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
     }
 
-    /*QuizFinalScore() returns question 1 scoring*/
-    public int QuizFinalScore(int QuestionOne) {
-        TotalScore = QuestionOne;
-        return TotalScore;
-    }
-
-    /*nextQuestion() method navigates users to the next question(Activity)*/
-    public void nextQuestion() {
-        Intent intent = new Intent(QuestionOne.this, QuestionTwo.class);
-        intent.putExtra("questionOneAnswer", TotalScore);
-        startActivity(intent);
-    }
 }

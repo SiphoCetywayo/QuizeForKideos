@@ -17,7 +17,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
     quizAppUtils quizeAppUtils = new quizAppUtils();
     CheckBox btn1, btn2, btn3, btn4;
     Button btn5;
-    int numberOfCheckboxesChecked = 0;
     public static int Question2Answer;
     int totalScore;
 
@@ -33,21 +32,14 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
         btn4 = findViewById(R.id.BtnFour_Section2);
         btn5 = findViewById(R.id.btn_nextSectionTwo);
 
-        /*setBtnInvisible() calling statement*/
+        /*setBtnInvinsible() calling statement to set btn_next invinsible until a maximum 2 checkboxes is selected */
         setBtnInvinsible();
 
         //OnclickListeners for click events
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
+        setBtnOnclickLisnter();
 
-        //OnCheckedChangeListener for check events
-        btn1.setOnCheckedChangeListener(this);
-        btn2.setOnCheckedChangeListener(this);
-        btn3.setOnCheckedChangeListener(this);
-        btn4.setOnCheckedChangeListener(this);
+        //OnCheckedChangeListener for checkbox events
+        setOncheckeListner();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -56,18 +48,17 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.BtnOne_Section2:
             case R.id.BtnFour_Section2:
                 break;
 
-            /*nextQuestion() calling statement*/
+            /*nextQuestion() calling statement incorporated with if/else if statement to control user interaction */
             case R.id.btn_nextSectionTwo:
-                nextQuestion();
                 if (btn1.isChecked() && btn3.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     correctAnswer();/*incorrectAnswer calling statement*/
                     btn1.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     btn3.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     Question2Answer = quizeAppUtils.scoreCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn1.isChecked() && btn2.isChecked()) {
@@ -75,7 +66,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn1.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable(); /*btnDisable() calling statement*/
 
                 } else if (btn2.isChecked() && btn3.isChecked()) {
@@ -83,7 +73,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn1.isChecked() && btn4.isChecked()) {
@@ -91,7 +80,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
                     btn4.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     btn1.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     Question2Answer = quizeAppUtils.zeroCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn3.isChecked() && btn4.isChecked()) {
@@ -99,7 +87,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn4.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     Question2Answer = quizeAppUtils.zeroCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn2.isChecked() && btn4.isChecked()) {
@@ -107,10 +94,10 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn4.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
-                    QuizFinalScore(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 }
+                nextQuestion(Question2Answer);
                 break;
         }
     }
@@ -159,6 +146,17 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
         btn4.setEnabled(false);
     }
 
+    public void setBtnOnclickLisnter(){
+       btn5.setOnClickListener(this);
+    }
+
+    public void setOncheckeListner(){
+        btn1.setOnCheckedChangeListener(this);
+        btn2.setOnCheckedChangeListener(this);
+        btn3.setOnCheckedChangeListener(this);
+        btn4.setOnCheckedChangeListener(this);
+    }
+
     /*setBtnInvinsible() set btn4 invisible*/
     public void setBtnInvinsible() {
         btn5.setVisibility(View.INVISIBLE);
@@ -180,19 +178,14 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
         Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
     }
 
-
-    /*QuizFinalScore() returns question 2 scoring*/
-    public int QuizFinalScore(int question2) {
+    /*nextQuestion() method navigates users to the next question(Activity)*/
+    public void nextQuestion(int question2) {
         Intent mIntent = getIntent();
         Integer QuestionOneAnswer = mIntent.getIntExtra("questionOneAnswer", 0);
         totalScore = question2 + QuestionOneAnswer;
-        return totalScore;
-    }
-
-    /*nextQuestion() method navigates users to the next question(Activity)*/
-    public void nextQuestion() {
         Intent next = new Intent(getApplicationContext(), QuestionThree.class);
         next.putExtra("question1&2 answer", totalScore);
         startActivity(next);
     }
+
 }

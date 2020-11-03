@@ -48,39 +48,16 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/ant_400x250"/>
         </RelativeLayout>
-
-        <Button
-            android:id="@+id/BtnOne_Section5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Squealing"
-            android:textAllCaps="false"
-            android:background="@drawable/btnanswer"/>
-        <Button
-            android:id="@+id/BtnTwo_Section5"
+-->
+        <EditText
+            android:id="@+id/Q5freeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="@string/oozing_chemicals"
-            android:textAllCaps="false"
-            android:background="@drawable/btnanswer"/>
-
-        <Button
-            android:id="@+id/BtnThree_Section5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/rolling_on_its_back"
-            android:textAllCaps="false"
-            android:background="@drawable/btnanswer"/>
-
+            android:padding="10dp"
+            android:background="@drawable/edittextstyle"/>
         <Button
             android:id="@+id/btn_nextSection5"
             android:layout_width="wrap_content"

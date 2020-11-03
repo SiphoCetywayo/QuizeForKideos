@@ -24,7 +24,7 @@
         <activity android:name=".QuestionTwo" android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".QuestionOne"
-            android:configChanges="orientation|screenSize" />
+            android:configChanges="orientation" />
         <activity android:name=".QuizMenuSelect" />
         <activity android:name=".MainActivity">
             <intent-filter>

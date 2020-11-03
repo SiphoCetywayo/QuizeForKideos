@@ -54,6 +54,7 @@
             android:background="@drawable/shapes"
             android:padding="10dp"
             android:text="Play"
+            android:onClick="Play"
             android:textColor="@color/buttonTexcolor" />
 
         <Button

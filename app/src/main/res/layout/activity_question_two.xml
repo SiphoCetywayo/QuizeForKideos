@@ -57,7 +57,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="PLAINS ZEBRAS ARE SMALL AND NUMEROUS"
+            android:text="(A) PLAINS ZEBRAS ARE SMALL AND NUMEROUS"
             android:textAllCaps="false"
             android:padding="15dp"
             android:background="@drawable/btnanswer"/>
@@ -68,10 +68,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="ZEBRAS ARE FRIENDLIER THAN HOURS"
+            android:text="(B) ZEBRAS ARE FRIENDLIER THAN HOURS"
             android:textAllCaps="false"
             android:padding="15dp"
-            android:onClick="OptionTwo_Section2"
+
             android:background="@drawable/btnanswer"/>
 
         <CheckBox
@@ -81,9 +81,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text=" GREVY’S ZEBRAS ARE LARGE AND PRESIDENTIAL."
+            android:text="(C) GREVY’S ZEBRAS ARE LARGE AND PRESIDENTIAL."
             android:textAllCaps="false"
-            android:onClick="OptionThree_Section3"
             android:padding="15dp"
             android:background="@drawable/btnanswer"/>
 
@@ -94,10 +93,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Zebras are friendly to human and can domesticated"
+            android:text="(D) Zebras are friendly to human and can domesticated"
             android:textAllCaps="false"
             android:padding="15dp"
-            android:onClick="OptionThree_Section3"
             android:background="@drawable/btnanswer"/>
 
         <Button
@@ -107,7 +105,7 @@
             android:layout_marginTop="@dimen/imageShareMarginTop"
             android:layout_gravity="center"
             android:text="@string/next"
-            android:onClick="nextQuestion"
+            android:onClick="mNextQuestion"
             android:padding="15dp"
             android:textColor="@color/whiteTextcolor"
             android:background="@drawable/shapes"/>

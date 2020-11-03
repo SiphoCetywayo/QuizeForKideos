@@ -15,11 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class QuestionThree extends AppCompatActivity implements View.OnClickListener {
 
     quizAppUtils qz3 = new quizAppUtils();
-    Button btn4;
-    EditText userInputField;
-    String txt;
+    private Button btn4;
+    private  EditText userInputField;
+    private String txtInput;
     public static int Question3Answer;
-    int totalScore;
+    private int totalScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +37,17 @@ public class QuestionThree extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
 
-            /*nextQuestion() calling statement*/
+            /*nextQuestion() calling statement incorporated with if/else if conditional statements to determine user input to the quiz questions*/
             case R.id.btn_nextSection3:
-                txt = userInputField.getText().toString();
-                if (txt.equalsIgnoreCase("Tiger")) {
+                txtInput = userInputField.getText().toString();
+                if (txtInput.equalsIgnoreCase("Tiger")) {
                     correctAnswer();
                     Question3Answer = qz3.scoreCount();
-                    totalScore = QuizFinalScore(Question3Answer);
                     userInputField.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     userInputField.setEnabled(false);
 
-                } else if (TextUtils.isEmpty(txt)) {
-                    userInputField.setError("Field answer cant be empty");
+                } else if (TextUtils.isEmpty(txtInput)) {
+                    userInputField.setError("Field answer can not be empty");
                     break;
                 } else {
                     incorrectAnswer();
@@ -56,29 +55,19 @@ public class QuestionThree extends AppCompatActivity implements View.OnClickList
                     userInputField.setEnabled(false);
                     Question3Answer = qz3.zeroCount();
                 }
-                nextQuestion();
+                nextQuestion(Question3Answer);
         }
 
     }
 
     /*nextQuestion() method navigates users to the next question(Activity)*/
-    private void nextQuestion() {
-        Intent next = new Intent(getApplicationContext(), QuestionFour.class);
-        next.putExtra("Question3Answer", totalScore);
-        startActivity(next);
-    }
-
-    /*QuizFinalScore() returns question 3 scoring*/
-    private int QuizFinalScore(int question3Answer) {
+    private void nextQuestion(int question3Answer) {
         Intent mIntent = getIntent();
         Integer Q1andQ2answers = mIntent.getIntExtra("question1&2 answer", 0);
         totalScore = Q1andQ2answers + question3Answer;
-        return totalScore;
-    }
-
-    /*setBtnInvinsible() set btn4 invisible*/
-    public void setBtnInvinsible() {
-        btn4.setVisibility(View.INVISIBLE);
+        Intent next = new Intent(getApplicationContext(), QuestionFour.class);
+        next.putExtra("Question3Answer", totalScore);
+        startActivity(next);
     }
 
     /*makeBtnVisible() changes btn4 invisibility to visible*/
