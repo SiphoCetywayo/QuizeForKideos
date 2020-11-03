@@ -168,16 +168,6 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
         btn5.setVisibility(View.VISIBLE);
     }
 
-    /*incorrectAnswer() method called when an incorrect option is selected*/
-    public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
-    }
-
-    /*correctAnswer() called when a correct answer is selected*/
-    public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
-    }
-
     /*nextQuestion() method navigates users to the next question(Activity)*/
     public void nextQuestion(int question2) {
         Intent mIntent = getIntent();
@@ -186,6 +176,16 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
         Intent next = new Intent(getApplicationContext(), QuestionThree.class);
         next.putExtra("question1&2 answer", totalScore);
         startActivity(next);
+    }
+
+    /*incorrectAnswer() method called when an incorrect option is selected*/
+    public void incorrectAnswer() {
+        Toast.makeText(getApplicationContext(), "Wrong Answer ", Toast.LENGTH_SHORT).show();
+    }
+
+    /*correctAnswer() called when a correct answer is selected*/
+    public void correctAnswer() {
+        Toast.makeText(getApplicationContext(), "Correct Answer " , Toast.LENGTH_SHORT).show();
     }
 
 }

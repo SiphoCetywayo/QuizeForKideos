@@ -28,7 +28,7 @@ public class FinalScore extends AppCompatActivity {
         TextView q4Opt = findViewById(R.id.q4Answer);
         TextView q5Opt = findViewById(R.id.q5Answer);
 
-
+        //This line updates user's final scoring
         txtScore.setText((QuestionFive.totalScore + " / 5"));
 
 

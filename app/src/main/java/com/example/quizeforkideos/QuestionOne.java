@@ -115,12 +115,12 @@ public class QuestionOne extends AppCompatActivity implements View.OnClickListen
 
     /*incorrectAnswer() method called when an incorrect option is selected*/
     public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Wrong Answer " , Toast.LENGTH_SHORT).show();
     }
 
     /*correctAnswer() called when a correct answer is selected*/
     public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Correct Answer " , Toast.LENGTH_SHORT).show();
     }
 
 }
