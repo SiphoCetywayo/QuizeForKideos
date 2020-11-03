@@ -41,8 +41,8 @@ public class QuestionThree extends AppCompatActivity implements View.OnClickList
             case R.id.btn_nextSection3:
                 txtInput = userInputField.getText().toString();
                 if (txtInput.equalsIgnoreCase("Tiger")) {
-                    correctAnswer();
                     Question3Answer = qz3.scoreCount();
+                    correctAnswer(Question3Answer);
                     userInputField.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     userInputField.setEnabled(false);
 
@@ -50,10 +50,11 @@ public class QuestionThree extends AppCompatActivity implements View.OnClickList
                     userInputField.setError("Field answer can not be empty");
                     break;
                 } else {
-                    incorrectAnswer();
+
                     userInputField.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     userInputField.setEnabled(false);
                     Question3Answer = qz3.zeroCount();
+                    incorrectAnswer(Question3Answer);
                 }
                 nextQuestion(Question3Answer);
         }
@@ -76,13 +77,13 @@ public class QuestionThree extends AppCompatActivity implements View.OnClickList
     }
 
     /*incorrectAnswer() method called when an incorrect option is selected*/
-    public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
+    public void incorrectAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Wrong Answer "+ score, Toast.LENGTH_LONG).show();
     }
 
     /*correctAnswer() called when a correct option is selected*/
-    public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
+    public void correctAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Correct Answer "+ score, Toast.LENGTH_LONG).show();
     }
 
 }

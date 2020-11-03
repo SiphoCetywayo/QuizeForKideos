@@ -55,45 +55,45 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
             /*nextQuestion() calling statement incorporated with if/else if statement to control user interaction */
             case R.id.btn_nextSectionTwo:
                 if (btn1.isChecked() && btn3.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    correctAnswer();/*incorrectAnswer calling statement*/
                     btn1.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     btn3.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     Question2Answer = quizeAppUtils.scoreCount();
+                    correctAnswer(Question2Answer);/*incorrectAnswer calling statement*/
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn1.isChecked() && btn2.isChecked()) {
-                    incorrectAnswer();/*correctAnswer() calling statement*/
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn1.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
+                    incorrectAnswer(Question2Answer);/*correctAnswer() calling statement*/
                     btnDisable(); /*btnDisable() calling statement*/
 
                 } else if (btn2.isChecked() && btn3.isChecked()) {
-                    incorrectAnswer();/*incorrectAnswer() calling statement*/
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
+                    incorrectAnswer(Question2Answer);/*incorrectAnswer() calling statement*/
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn1.isChecked() && btn4.isChecked()) {
-                    incorrectAnswer();
                     btn4.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     btn1.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     Question2Answer = quizeAppUtils.zeroCount();
+                    incorrectAnswer(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn3.isChecked() && btn4.isChecked()) {
-                    incorrectAnswer();
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn4.setBackground(getDrawable((R.drawable.btnincorrectanswer)));
                     Question2Answer = quizeAppUtils.zeroCount();
+                    incorrectAnswer(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn2.isChecked() && btn4.isChecked()) {
-                    incorrectAnswer();
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     btn4.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     Question2Answer = quizeAppUtils.zeroCount();
+                    incorrectAnswer(Question2Answer);
                     btnDisable();/*btnDisable() calling statement*/
 
                 }
@@ -179,13 +179,13 @@ public class QuestionTwo extends AppCompatActivity implements View.OnClickListen
     }
 
     /*incorrectAnswer() method called when an incorrect option is selected*/
-    public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer ", Toast.LENGTH_SHORT).show();
+    public void incorrectAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Wrong Answer "+ score, Toast.LENGTH_LONG).show();
     }
 
     /*correctAnswer() called when a correct answer is selected*/
-    public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer " , Toast.LENGTH_SHORT).show();
+    public void correctAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Correct Answer "+ score, Toast.LENGTH_LONG).show();
     }
 
 }

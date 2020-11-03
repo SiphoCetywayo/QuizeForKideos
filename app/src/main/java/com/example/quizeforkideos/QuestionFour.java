@@ -52,19 +52,19 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
                 if (btn1.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn1.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     question4Answer = qz4.scoreCount();
-                    correctAnswer();/*correctAnswer() calling statement*/
+                    correctAnswer(question4Answer);/*correctAnswer() calling statement*/
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn2.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn2.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     question4Answer = qz4.zeroCount();
-                    incorrectAnswer();/*incorrectAnswer calling statement*/
+                    incorrectAnswer(question4Answer);/*incorrectAnswer calling statement*/
                     btnDisable();/*btnDisable() calling statement*/
 
                 } else if (btn3.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     btn3.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     question4Answer = qz4.zeroCount();
-                    incorrectAnswer();/*incorrectAnswer calling statement*/
+                    incorrectAnswer(question4Answer);/*incorrectAnswer calling statement*/
                     btnDisable();/*btnDisable() calling statement*/
                 }
                 nextQuestion(question4Answer);
@@ -90,13 +90,13 @@ public class QuestionFour extends AppCompatActivity implements View.OnClickListe
     }
 
     /*incorrectAnswer() method called when an incorrect option is selected*/
-    public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
+    public void incorrectAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Wrong Answer "+ score, Toast.LENGTH_SHORT).show();
     }
 
     /*correctAnswer() called when a correct answer is selected*/
-    public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
+    public void correctAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Correct Answer " +score, Toast.LENGTH_SHORT).show();
     }
 
     /*btnDisable method controls button disablement */

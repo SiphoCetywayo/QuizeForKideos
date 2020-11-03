@@ -44,18 +44,18 @@ public class QuestionFive extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_nextSection5:
                 finalQuestionTxtinput = userInputField.getText().toString();
                 if (finalQuestionTxtinput.equalsIgnoreCase("oozing chemicals")) {
-                    correctAnswer();
                     Question5Answer = qz5.scoreCount();
+                    correctAnswer(Question5Answer);
                     userInputField.setBackground(getDrawable(R.drawable.btncorrectanswer));
                     userInputField.setEnabled(false);
                 } else if (TextUtils.isEmpty(finalQuestionTxtinput)) {
                     userInputField.setError("Field answer can not be left empty");
                     break;
                 } else {
-                    incorrectAnswer();
                     userInputField.setBackground(getDrawable(R.drawable.btnincorrectanswer));
                     userInputField.setEnabled(false);
                     Question5Answer = qz5.zeroCount();
+                    incorrectAnswer(Question5Answer);
                 }
                 finalSubmit(Question5Answer);
                 break;
@@ -75,12 +75,12 @@ public class QuestionFive extends AppCompatActivity implements View.OnClickListe
     }
 
     /*incorrectAnswer() method called when an incorrect option is selected*/
-    public void incorrectAnswer() {
-        Toast.makeText(getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
+    public void incorrectAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Wrong Answer "+ score, Toast.LENGTH_SHORT).show();
     }
 
     /*correctAnswer() called when a correct answer is selected*/
-    public void correctAnswer() {
-        Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
+    public void correctAnswer(int score) {
+        Toast.makeText(getApplicationContext(), "Correct Answer "+ score, Toast.LENGTH_SHORT).show();
     }
 }
